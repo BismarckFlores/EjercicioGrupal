@@ -5,22 +5,28 @@ y se entrevistará a cinco estudiantes por grupo. Se debe registrar si el estudi
 estable, intermitente o no tiene internet. Al final, mostrar un conteo de cada tipo de acceso por
 carrera y el total general."""
 
+# Inicializar contadores generales de acceso a internet.
 total_estable_general = 0
 total_interm_general = 0
 total_no_general = 0
 
+# Lista de carreras a evaluar.
 carreras = ["Administración", "Ingenieria", "Medicina"]
 
+# Bucle para recorrer cada carrera.
 for carrera in carreras:
     print(f"\nCarrera: {carrera}")
 
+    # Inicializar contadores por carrera.
     estable_carrera = 0
     interm_carrera = 0
     no_carrera = 0
 
+    # Bucle para recorrer 3 grupos por carrera.
     for grupo in range(1, 4):
         print(f"\nGrupo #{grupo}")
 
+        # Bucle para registrar datos de 5 estudiantes por grupo.
         for estudiante in range(1, 6):
             print(f"\nEstudiante #{estudiante}")
             while True:
@@ -28,9 +34,11 @@ for carrera in carreras:
                 print("2. Acceso intermitente")
                 print("3. No tiene acceso a internet")
 
+                # Validación de entrada de datos.
                 try:
                     opcion = int(input("Seleccione una opción: "))
 
+                    # Clasificación del tipo de acceso según opción seleccionada.
                     match opcion:
                         case 1:
                             estable_carrera += 1
@@ -49,12 +57,14 @@ for carrera in carreras:
                 except ValueError:
                     print("\nError. Ingrese un valor valido [1 - 3]\n")
 
+    # Mostrar resultados de acceso por carrera.
     print(f"\nResultados de {carrera}:")
     print(f"Acceso estable: {estable_carrera}")
     print(f"Acceso intermitente: {interm_carrera}")
     print(f"No tiene internet: {no_carrera}")
     input("\nPresione enter enter para continuar...")
 
+# Mostrar totales generales de todos los estudiantes encuestados.
 print("\n===== Totales Generales =====")
 print(f"Acceso estable general: {total_estable_general}")
 print(f"Acceso intermitente general: {total_interm_general}")

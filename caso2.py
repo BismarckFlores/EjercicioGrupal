@@ -7,10 +7,15 @@ semanas y días"""
 
 gastos_mes = 0
 
+# Bucle principal para recorrer las 4 semanas.
 for sem in range(4):
     print(f"\nSemana #{sem + 1}")
+
     gastos_sem = 0
+
+    # Bucle interno para registrar gastos diarios (7 días por semana).
     for dia in range(7):
+        # Mostrar el día correspondiente.
         match dia:
             case 0:
                 print("\nGastos del Lunes")
@@ -26,8 +31,13 @@ for sem in range(4):
                 print("\nGastos del Sábado")
             case 6:
                 print("\nGastos del Domingo")
+
+        # Solicitar gasto del día y acumular al total semanal.
         gastos_diarios = float(input("Ingrese lo que se gasto en el dia: "))
         gastos_sem += gastos_diarios
+
+    # Mostrar y acumular gastos semanales.
     print(f"Gastos de la semana {sem + 1}: C${gastos_sem}")
     gastos_mes += gastos_sem
+
 print(f"Gastos del mes: C${gastos_mes}")

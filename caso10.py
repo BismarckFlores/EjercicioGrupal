@@ -5,22 +5,24 @@ con tres subcategorías. Por cada subcategoría se registrarán los préstamos d
 sistema debe mostrar el total de préstamos por subcategoría, categoría y el total general
 semanal."""
 
-total_general = 0
+total_general = 0 # Inicialización del total general de préstamos de la semana
 
-categorias = ["Ingeniería", "Salud", "Derecho", "Literatura"]
+categorias = ["Ingeniería", "Salud", "Derecho", "Literatura"] # Lista de categorías de libros
 
+# Bucle principal para recorrer cada categoría
 for categoria in categorias:
     print(f"\nCategoría: {categoria}")
+    total_categoria = 0 # Inicialización del total por categoría
 
-    total_categoria = 0
-
+    # Bucle para recorrer las 3 subcategorías de cada categoría
     for subcat in range(1, 4):
         print(f"\nSubcategoría: {subcat}")
+        total_subcat = 0 # Inicialización del total por subcategoría
 
-        total_subcat = 0
-
+        # Bucle para registrar préstamos durante 5 días (lunes a viernes)
         for dia in range(1, 6):
 
+            # Uso de match-case para mostrar el día correspondiente
             match dia:
                 case 1:
                     print("\nPréstamos del Lunes")
@@ -33,6 +35,7 @@ for categoria in categorias:
                 case 5:
                     print("\nPréstamos del Viernes")
 
+            # Bucle para validar que el usuario ingrese un número entero positivo
             while True:
                 try:
                     prestamos = int(input(f"Ingrese la cantidad de préstamos: "))
@@ -44,15 +47,16 @@ for categoria in categorias:
                 except ValueError:
                     print("\nError. Ingrese un número entero.\n")
 
+        # Mostrar el total de préstamos por subcategoría
         print(f"\nTotal de prestamos en subcategoría #{subcat}: {total_subcat}")
         if subcat != 3:
             input("\nPresione enter enter para continuar...")
+        total_categoria += total_subcat # Acumular el total de préstamos por subcategoría al total de la categoría
 
-        total_categoria += total_subcat
-
+    # Mostrar el total de préstamos por categoría
     print(f"\nTotal de préstamos en la categoría {categoria}: {total_categoria}")
     input("\nPresione enter enter para continuar...")
-    
-    total_general += total_categoria
+    total_general += total_categoria # Acumular el total de la categoría al total general
 
+# Mostrar el total general de préstamos de la semana
 print(f"\n===== Total de préstamos de la semana: {total_general} =====")

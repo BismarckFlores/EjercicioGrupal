@@ -9,13 +9,20 @@ clientes_atendidos = int(input("Ingrese la cantidad de clientes atendidos: "))
 
 total_venta = 0
 
+# Bucle principal que recorre cada cliente.
 for cliente in range(clientes_atendidos):
     print(f"\nCliente {cliente + 1}")
+
     porciones = int(input("Ingrese la cantidad de porciones compradas: "))
+
     total_cliente = 0
+
+    # Bucle interno para registrar el precio de cada porción adquirida por el cliente.
     for porcion in range(porciones):
         precio_unitario = float(input(f"Ingrese el precio de la porcion #{porcion + 1}: "))
+        # Se suma el precio de cada porción al total del cliente.
         total_cliente += precio_unitario
+
     print(f"Total a pagar por el cliente {cliente + 1}: C${total_cliente}")
     total_venta += total_cliente
 
